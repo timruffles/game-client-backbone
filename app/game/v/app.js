@@ -9,24 +9,23 @@ module.exports = require("../../view").extend({
   // deep linking within them. because we passed the
   // route data into constructed child views we know they'll
   // handle them if we startup on a nested link
-  routed: function(route) {
-    var view;
-    if(route.match("lobby")) {
-      view = require("./lobby");
-    } else if(route.match("play")) {
-      view = require("./play");
-    }
-
-    this.switchTo(new view({ route: route }));
+  routes: {
+    "lobby": "lobby",
+    "play": "play",
   },
-
+  lobby: function(route) {
+    this.switchTo(require("./lobby"), route);
+  },
+  play: function(routek) {
+    this.switchTo(require("./play"), route);
+  },
   switchTo: function(view) {
     if(this.view) {
       this.removeChild(this.modal);
     }
-    this.view = view;
+    this.view = new view({ route: route });
     this.addChild(this.view);
-    this.$el.append(view.el);
+    this.$el.append(this.view.el);
   },
 
 });
