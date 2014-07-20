@@ -1,0 +1,17 @@
+{
+  "name": "game-client-backbone",
+  "version": "0.0.0",
+  "description": "a game client demoing backbone, for teaching backend classes",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Tim Ruffles <timruffles@gmail.com>",
+  "license": "©",
+  "dependencies": {
+    "watchify": "~0.10.2",
+    "lodash": "~2.4.1",
+    "jquery": "~2.1.1",
+    "backbone": "~1.1.2"
+  }
+}
